@@ -1,0 +1,451 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.3);
+    transition: .3s ease-in-out;
+}
+html {
+    scroll-behavior: smooth;
+  }
+ 
+body{
+    background: #000000;
+    
+}
+#check{
+    display: none;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.3rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    z-index: 1000000;
+}
+.header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(50px);
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+.logo{
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+}
+.navbar a{
+    font-size: 1.15rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 2.5rem;
+}
+#icons {
+    display: none;
+}
+.icons{
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #ffffff;
+    cursor: pointer;
+    display: none;
+}
+.navbar a:hover{
+    color: #ffe0c1;
+    border-radius: 30px;
+    transition: .3s;
+}
+@media (max-width: 992px){
+    .header{
+        padding: 1.3rem 5%;
+    }
+}
+
+@media (max-width: 768px){
+    .icons {
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+    .icons #close-icon{
+        display: none;
+    }
+    
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+     .navbar{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        backdrop-filter: blur(50px);
+        background: rgba(0, 0, 0, 0.4);
+        transition: .3s ease;
+    }
+    
+    #check:checked~.navbar {
+        height: 13rem;
+    }
+    .navbar a{
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+    
+    #check:checked~.navbar a {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+}
+.home{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    top: 30px;
+}
+.home video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+.img{
+    width: 40%;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+.part{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto ;
+    position: absolute;
+    right: 7%;
+    animation: float 3s ease-in-out infinite;
+}
+.part h1{
+    position: absolute;
+    bottom: auto;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.part h1{
+    font-size: 60px;
+}
+button {
+    width: 10em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff;
+   background: linear-gradient(#ff9500,#ff802b);
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: #ffffff;
+   border: none;
+   animation: float 3s ease-in-out infinite;
+   }
+
+button a{
+    font-family: inherit;
+   font-size: 18px;
+   color: #ffffff;
+   text-decoration: none;
+}
+   
+   button::before {
+    width: 0em;
+    height: 3em;
+    content: '';
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #ff1414 0%, #b700ff 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+   }
+   
+   button:hover::before {
+    width: 11em;
+   }
+   
+   button:hover a {
+    color: #ffffff;
+   }
+.part h1 p{
+    font-size: 30px;
+}
+@media (max-width: 768px){
+.img{
+    height: 245px;
+    width: 340px;
+    padding: auto;
+    position: absolute;
+    left: auto;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 50px;
+}
+.part{
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.part h1{
+    bottom: 65%;
+    font-size: 40px;
+}
+
+.part h1 p{
+    font-size: 25px;
+}
+
+   
+button::before {
+    width: 9em;
+   }
+   
+   button a {
+    color: #ffffff;
+   }
+   
+   
+   button:hover::before {
+    width: 0;
+   }
+   
+   button:hover a{
+    color: #ffffff;
+   }
+   button {
+    width: 9em;
+    height: 3em;
+}
+
+}
+.our{
+    background: url(pexels-instawally-176851.jpg);
+    width: 100%;
+    min-height: 100vh;
+    max-height: 500vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.cent{
+    width: 100%;
+    height: 100px;
+}
+.main{
+    margin-left: auto;
+    font-size: 70px;
+    margin: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 0;
+    color: #ff8000;
+}
+.our-card{
+    width: 300px;
+    height: 300px;
+    backdrop-filter: blur(50px);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.223);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 2px solid #c5c5c5;
+    transition: .3s;
+}
+.our-card h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    color: #ffffff;
+}
+.our-card p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #effcff;
+    font-style: bold;
+    padding: 10px;
+}
+
+.our-card::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -30%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 156, 91, 0.3);
+    border-radius: 20px;
+    z-index: -1;
+    transition: .5s;
+}
+.our-card:hover::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: .5s;
+}
+
+.our-card:hover {
+    border: 2px solid #ff8000;
+    transition: .3s;
+}
+.our-card:hover.our-card p {
+    transition: .3s;
+}
+
+.our-card:hover.our-card h1 {
+    transition: .3s;
+}
+
+@media (max-width: 768px){
+    
+.main{
+    font-size: 50px;
+    margin: 10px;
+}
+}
+.portfolio{
+    width: 100%;
+    min-height: 20vh;
+    max-height: 1000vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+  .portfolio img {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio img:hover {
+    transform: scale(1.07);
+    transition: .3s;
+  }
+  .main{
+    text-align: center;
+  }
+  .gallery{
+    width: 100%;
+    min-height: 0vh;
+    max-height: 1000vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .social{
+    width: 100%;
+    min-height: 20vh;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center; 
+    justify-content: center;
+    margin-top: 20px;
+}
+  .so{
+    width: 70%;
+    margin: 10px;
+  }
+  footer{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(0, 45, 84);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  footer h1{
+    font-size: 17px;
+    color: #ffffff;
+    margin: auto;
+  }
